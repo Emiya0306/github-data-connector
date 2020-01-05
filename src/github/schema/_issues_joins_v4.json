@@ -1,0 +1,127 @@
+[
+  {
+    "alias": "Joined issues data",
+    "tables": [{
+      "id": "issues",
+      "alias": "issues"
+    }, {
+      "id": "assignees",
+      "alias": "assignees"
+    }, {
+      "id": "milestones",
+      "alias": "milestones"
+    }, {
+      "id": "assigned_labels",
+      "alias": "assigned_labels"
+    }, {
+      "id": "users",
+      "alias": "issue_creators"
+    }, {
+      "id": "users",
+      "alias": "milestone_creators"
+    }, {
+      "id": "users",
+      "alias": "assignees_users"
+    }, {
+      "id": "labels",
+      "alias": "labels"
+    }, {
+      "id": "comments",
+      "alias": "comments"
+    }, {
+      "id": "issue_comments",
+      "alias": "issue_comments"
+    }],
+    "joins": [{
+      "left": {
+        "tableAlias": "issues",
+        "columnId": "id"
+      },
+      "right": {
+        "tableAlias": "assignees",
+        "columnId": "parent_id"
+      },
+      "joinType": "left"
+    }, {
+      "left": {
+        "tableAlias": "issues",
+        "columnId": "user_id"
+      },
+      "right": {
+        "tableAlias": "issue_creators",
+        "columnId": "id"
+      },
+      "joinType": "left"
+    }, {
+      "left": {
+        "tableAlias": "issues",
+        "columnId": "milestone_id"
+      },
+      "right": {
+        "tableAlias": "milestones",
+        "columnId": "id"
+      },
+      "joinType": "left"
+    }, {
+      "left": {
+        "tableAlias": "milestones",
+        "columnId": "user_id"
+      },
+      "right": {
+        "tableAlias": "milestone_creators",
+        "columnId": "id"
+      },
+      "joinType": "left"
+    }, {
+      "left": {
+        "tableAlias": "issues",
+        "columnId": "id"
+      },
+      "right": {
+        "tableAlias": "assigned_labels",
+        "columnId": "parent_id"
+      },
+      "joinType": "left"
+    }, {
+      "left": {
+        "tableAlias": "assignees",
+        "columnId": "user_id"
+      },
+      "right": {
+        "tableAlias": "assignees_users",
+        "columnId": "id"
+      },
+      "joinType": "left"
+    }, {
+      "left": {
+        "tableAlias": "assigned_labels",
+        "columnId": "label_id"
+      },
+      "right": {
+        "tableAlias": "labels",
+        "columnId": "id"
+      },
+      "joinType": "left"
+    }, {
+      "left": {
+        "tableAlias": "issues",
+        "columnId": "id"
+      },
+      "right": {
+        "tableAlias": "issue_comments",
+        "columnId": "parent_id"
+      },
+      "joinType": "left"
+    }, {
+      "left": {
+        "tableAlias": "issue_comments",
+        "columnId": "comment_id"
+      },
+      "right": {
+        "tableAlias": "comments",
+        "columnId": "id"
+      },
+      "joinType": "left"
+    }]
+  }
+]

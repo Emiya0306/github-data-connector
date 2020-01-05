@@ -16,7 +16,8 @@
     "node": "4.8.4"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "npm run build && node app.js",
+    "build": "gulp build",
     "postinstall": "node node_modules/gulp/bin/gulp build"
   },
   "dependencies": {
@@ -28,7 +29,8 @@
     "js-base64": "^2.1.9",
     "lodash": "^4.17.4",
     "node-env-file": "^0.1.8",
-    "request-promise": "^4.1.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
     "uglifyify": "^3.0.4"
   },
   "devDependencies": {
@@ -43,7 +45,7 @@
     "eslint-plugin-import": "^2.2.0",
     "event-stream": "^3.3.4",
     "glob": "^7.1.1",
-    "gulp": "gulpjs/gulp#4.0",
+    "gulp": "^4.0",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-buffer": "0.0.2",
     "gulp-cli": "^1.2.2",
@@ -56,6 +58,6 @@
     "gulp-uglify": "^2.1.0",
     "gulp-watch": "^4.3.11",
     "rimraf": "^2.6.1",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^2.0.0"
   }
 }

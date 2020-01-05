@@ -1,0 +1,8 @@
+{
+  "alias": "issue_comments",
+  "id": "issue_comments",
+  "columns": [
+    { "id": "parent_id", "alias": "parent_id", "dataType": "string", "columnRole": "dimension", "description": "The object this assignee belongs to (Issue or PR)." },
+    { "id": "comment_id", "alias": "comment_id", "dataType": "string", "columnRole": "dimension", "description": "Link to the user object." }
+  ]
+}

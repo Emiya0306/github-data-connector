@@ -1,0 +1,22 @@
+{
+  "alias": "users",
+  "id": "users",
+  "columns": [
+    { "id": "id", "alias": "id", "dataType": "string", "columnRole": "dimension", "description": "The identifier for this user." },
+    { "id": "login", "alias": "login", "dataType": "string", "description": "The login of this user." },
+    { "id": "avatar_url", "alias": "avatar_url", "dataType": "string", "description": "The avator url of this user." },
+    { "id": "url", "alias": "url", "dataType": "string", "description": "The url of this user." },
+    { "id": "html_url", "alias": "html_url", "dataType": "string", "description": "The url of this user." },
+    { "id": "followers_url", "alias": "followers_url", "dataType": "string", "description": "The followers url of this user." },
+    { "id": "following_url", "alias": "following_url", "dataType": "string", "description": "The following url of this user." },
+    { "id": "gists_url", "alias": "gists_url", "dataType": "string", "description": "The gists url of this user." },
+    { "id": "starred_url", "alias": "starred_url", "dataType": "string", "description": "The starred url of this user." },
+    { "id": "subscriptions_url", "alias": "subscriptions_url", "dataType": "string", "description": "The subscriptions url of this user." },
+    { "id": "organizations_url", "alias": "organizations_url", "dataType": "string", "description": "The organizations url of this user." },
+    { "id": "repos_url", "alias": "repos_url", "dataType": "string", "description": "The repos url of this user." },
+    { "id": "events_url", "alias": "events_url", "dataType": "string", "description": "The events url of this user." },
+    { "id": "received_events_url", "alias": "received_events_url", "dataType": "string", "description": "The received events url of this user." },
+    { "id": "site_admin", "alias": "site_admin", "dataType": "bool", "description": "Whether the user is a site admin." },
+    { "id": "updated_at", "alias": "updated_at", "dataType": "datetime", "description": "The last time this user was updated." }
+  ]
+}

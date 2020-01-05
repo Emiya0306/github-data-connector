@@ -24,6 +24,7 @@ tableau.registerConnector(wdc);
       // Show examples
       $('#help > div').hide();
       $('#help-' + dataType).show();
+      showInputForm();
     });
 
     // Handles WDC submission.
@@ -38,6 +39,8 @@ tableau.registerConnector(wdc);
       tableau.connectionData = JSON.stringify(data);
       tableau.submit();
     });
+
+    showInputForm();
   });
 
   /**
@@ -61,6 +64,19 @@ tableau.registerConnector(wdc);
    */
   function oAuthRedirect() {
     window.location.href = '/github/login/oauth';
+  }
+
+  function showInputForm() {
+    const dataType = $("#data-type-issues").val();
+    const isGraphqlV4 = !!dataType.match(/_v4$/);
+
+    if (isGraphqlV4) {
+      $('#api_v3').hide();
+      $('#graphql_v4').show();
+    } else {
+      $('#api_v3').show();
+      $('#graphql_v4').hide();
+    }
   }
 
   /**

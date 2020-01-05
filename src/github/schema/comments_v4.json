@@ -1,0 +1,13 @@
+{
+  "alias": "comments",
+  "id": "comments",
+  "columns": [
+    { "id": "id", "alias": "id", "dataType": "string", "columnRole": "dimension", "description": "The identifier for this comment." },
+    { "id": "body", "alias": "body", "dataType": "string", "description": "The body as Markdown." },
+    { "id": "created_at", "alias": "created_at", "dataType": "datetime", "description": "Identifies the date and time when the object was created." },
+    { "id": "database_id", "alias": "database_id", "dataType": "int", "description": "Identifies the primary key from the database." },
+    { "id": "last_edited_at", "alias": "last_edited_at", "dataType": "datetime", "description": "The moment the editor made the last edit." },
+    { "id": "published_at", "alias": "published_at", "dataType": "datetime", "description": "Identifies when the comment was published at." },
+    { "id": "updated_at", "alias": "updated_at", "dataType": "datetime", "description": "Identifies the date and time when the object was last updated." }
+  ]
+}

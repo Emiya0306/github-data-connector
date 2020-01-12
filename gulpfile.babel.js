@@ -14,7 +14,7 @@ gulp.task('clean', (cb) => {
 });
 
 gulp.task('build:js:github', () => {
-  let files = glob.sync('./src/github/**/*.js');
+  let files = glob.sync('./src/github/**/*.js', { ignore: ['./src/github/assets/*.js'] });
   return browserify({entries: files})
     .transform("babelify", {presets: ["es2015"]})
     .transform('uglifyify')

@@ -262,6 +262,51 @@ class GithubObject {
     return result;
   }
 
+  delayMs(func) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        func().then(resolve).catch(reject);
+      }, 1000);
+    });
+  }
+
+  graphql(queryObj, results = []) {
+    const authHeader = this._auth.header;
+    const token = authHeader && authHeader.replace('token ', '') || '';
+    const query = this.getQuery(queryObj);
+
+    const configs = {
+      url: 'https://api.github.com/graphql',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+        Authorization: token ? `bearer ${token}` : null,
+      },
+      responseType: 'json',
+      resolveWithFullResponse: true,
+      json: true,
+      body: { query },
+    };
+
+    return req(configs)
+      .then(response => {
+        const { data, nextCursor } = this.formatResponse(response);
+
+        if (data instanceof Array) {
+          results.push(...data);
+
+          if (nextCursor) {
+            const newQueryObj = Object.assign({}, queryObj, { cursor: nextCursor });
+
+            return this.delayMs(() => {
+              return this.graphql(newQueryObj, results);
+            });
+          }
+        }
+
+        return results;
+      });
+  }
 }
 
 export default GithubObject;

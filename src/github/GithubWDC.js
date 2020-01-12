@@ -1,5 +1,4 @@
 "use strict";
-
 import Github from './components/Github';
 import _ from 'lodash';
 
@@ -116,14 +115,31 @@ class GithubWDC {
    *  Callback function.
    */
   getData(table, cb) {
-    const tableId = table.tableInfo.id,
-      query = this.getConnectionData('query');
+    const dataType = this.getConnectionData('dataType');
+    const isGraphqlV4 = !!dataType.match(/_v4$/);
+    const tableId = table.tableInfo.id;
 
     if(_.has(this._cache, tableId)) {
       table.appendRows(this._cache[tableId]);
       cb();
     }
+    else if (isGraphqlV4) {
+      const connectionData = this.getConnectionData();
+      gh.graphql(connectionData)
+        .then(rawData => {
+          return gh.processData(this._cache, table, rawData);
+        }).then(processedData => {
+          this._cache = processedData;
+          return Promise.resolve(true);
+        }).then(() => {
+          table.appendRows(this._cache[tableId]);
+          cb();
+        }).catch((err) => {
+          tableau.abortWithError(err);
+      });
+    }
     else {
+      const query = this.getConnectionData('query');
       const urls = gh.parseUrl(query.split('?')[0], tableId),
         options = getUrlParams(query.split('?')[1]);
 

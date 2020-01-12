@@ -41,28 +41,47 @@
                     <a href="https://github.com/tableau-mkt/github-data-connector" class="mdl-card__title mdl-card--expand mdl-color--blue-900 mdl-color-text--white">
                         <h4 class="mdl-card__title-text">GitHub Web Data Connector</h4>
                     </a>
-                    <form class="mdl-grid mdl-grid--nesting mdl-color-text--grey-700">
+                    <form id="form" class="mdl-grid mdl-grid--nesting mdl-color-text--grey-700">
                         <div class="search-options mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
                             <h4>Get your data!</h4>
                             <div class="mdl-selectfield mdl-js-selectfield">
                                 <label class="mdl-selectfield__label" for="data-type-issues">Data Type</label>
                                 <select class="mdl-selectfield__select" id="data-type-issues" name="dataType">
+                                    <option value="issues_v4">IssuesV4</option>
                                     <option value="issues">Issues</option>
                                     <option value="pulls">Pull Requests</option>
                                     <option value="traffic">Traffic Stats</option>
                                 </select>
                             </div>
-                            <h6>Query</h6>
-                            <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" name="query" id="query" required />
-                                <label class="mdl-textfield__label" for="query">Query</label>
+                            <div id="api_v3">
+                                <h6>Query</h6>
+                                <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" name="query" id="query" />
+                                    <label class="mdl-textfield__label" for="query">Query</label>
+                                </div>
+                            </div>
+                            <div id="graphql_v4">
+                                <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
+                                    <!-- <label for="owner">Owner:</label> -->
+                                    <input class="mdl-textfield__input" type="text" name="owner" id="owner" />
+                                    <label class="mdl-textfield__label" for="owner">Owner</label>
+                                </div>
+                                <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
+                                    <!-- <label for="owner">Repository:</label> -->
+                                    <input class="mdl-textfield__input" type="text" name="repository" id="repository" />
+                                    <label class="mdl-textfield__label" for="repository">Repository</label>
+                                </div>
                             </div>
                             <input id="submit" type="submit" value="Get Data" class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" />
                         </div>
                         <div class="help mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
                             <h4>Examples</h4>
                             <div id ="help">
-                                <div id="help-issues">
+                                <div id="help-issues_v4">
+                                    <p>Get all issues across all the authenticated user’s visible repositories including owned repositories, member repositories, and organization repositories:</p>
+                                    <p>Please input repository owner name and repository name on the left form.</p>
+                                </div>
+                                <div id="help-issues" style="display:none;">
                                     <p>Get all issues across all the authenticated user’s visible repositories including owned repositories, member repositories, and organization repositories:</p>
                                     <pre><code>issues</code></pre>
                                     <p>Get all issues across owned and member repositories for the authenticated user:</p>

@@ -1,0 +1,8 @@
+{
+  "alias": "issue_creators",
+  "id": "issue_creators",
+  "columns": [
+    { "id": "parent_id", "alias": "parent_id", "dataType": "string", "columnRole": "dimension", "description": "The object this assignee belongs to (Issue or PR)." },
+    { "id": "user_id", "alias": "user_id", "dataType": "string", "columnRole": "dimension", "description": "Link to the user object." }
+  ]
+}

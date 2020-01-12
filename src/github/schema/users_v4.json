@@ -1,0 +1,18 @@
+{
+  "alias": "users",
+  "id": "users",
+  "columns": [
+    { "id": "id", "alias": "id", "dataType": "string", "columnRole": "dimension", "description": "The identifier for this user." },
+    { "id": "login", "alias": "login", "dataType": "string", "description": "The login of this user." },
+    { "id": "created_at", "alias": "created_at", "dataType": "datetime", "description": "Identifies the date and time when the object was created." },
+    { "id": "database_id", "alias": "database_id", "dataType": "int", "description": "Identifies the primary key from the database." },
+    { "id": "site_admin", "alias": "site_admin", "dataType": "bool", "description": "Whether the user is a site admin." },
+    { "id": "location", "alias": "location", "dataType": "string", "description": "The user's public profile location." },
+    { "id": "name", "alias": "name", "dataType": "string", "description": "The user's public profile name." },
+    { "id": "resource_path", "alias": "resource_path", "dataType": "string", "description": "The HTTP path for this user." },
+    { "id": "status", "alias": "status", "dataType": "string", "description": "The user's description of what they're currently doing." },
+    { "id": "updated_at", "alias": "updated_at", "dataType": "datetime", "description": "Identifies the date and time when the object was last updated." },
+    { "id": "url", "alias": "url", "dataType": "string", "description": "The url of this user." },
+    { "id": "avatar_url", "alias": "avatar_url", "dataType": "string", "description": "The avator url of this user." }
+  ]
+}

@@ -1,0 +1,69 @@
+[
+  {
+    "alias": "Joined issues data",
+    "tables": [
+      {
+        "id": "issues",
+        "alias": "issues"
+      },
+      {
+        "id": "assignees",
+        "alias": "assignees"
+      },
+      {
+        "id": "users",
+        "alias": "issue_creators"
+      },
+      {
+        "id": "users",
+        "alias": "assignees_users"
+      }
+    ],
+    "joins": [
+      {
+        "left": {
+          "tableAlias": "issues",
+          "columnId": "id"
+        },
+        "right": {
+          "tableAlias": "assignees",
+          "columnId": "parent_id"
+        },
+        "joinType": "left"
+      },
+      {
+        "left": {
+          "tableAlias": "issues",
+          "columnId": "id"
+        },
+        "right": {
+          "tableAlias": "issue_creators",
+          "columnId": "parent_id"
+        },
+        "joinType": "left"
+      },
+      {
+        "left": {
+          "tableAlias": "assignees",
+          "columnId": "user_id"
+        },
+        "right": {
+          "tableAlias": "assignees_users",
+          "columnId": "id"
+        },
+        "joinType": "left"
+      },
+      {
+        "left": {
+          "tableAlias": "issue_creators",
+          "columnId": "user_id"
+        },
+        "right": {
+          "tableAlias": "creators_users",
+          "columnId": "id"
+        },
+        "joinType": "left"
+      }
+    ]
+  }
+]

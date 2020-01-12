@@ -1,0 +1,23 @@
+{
+  "alias": "issues",
+  "id": "issues",
+  "columns": [
+    { "id": "id", "alias": "id", "dataType": "string", "columnRole": "dimension", "description": "The identifier for this issue." },
+    { "id": "url", "alias": "url", "dataType": "string", "description": "The url for this issue." },
+    { "id": "repository_url", "alias": "repository_url", "dataType": "string", "description": "The url for the repository this issue belongs to." },
+    { "id": "number", "alias": "number", "dataType": "int", "description": "The issue number." },
+    { "id": "state", "alias": "state", "dataType": "string", "description": "The state of this issue ('open' or 'closed')." },
+    { "id": "title", "alias": "title", "dataType": "string", "description": "The title of this issue." },
+    { "id": "body", "alias": "body", "dataType": "string", "description": "The body of this issue." },
+    { "id": "locked", "alias": "locked", "dataType": "bool", "description": "Whether this issue is locked." },
+    { "id": "repo_name", "alias": "repo_name", "dataType": "string", "description": "The repository this issue belongs to." },
+    { "id": "closed", "alias": "closed", "dataType": "bool", "description": "The status this issue was closed." },
+    { "id": "closed_at", "alias": "closed_at", "dataType": "datetime", "description": "The last time this issue was closed." },
+    { "id": "database_id", "alias": "database_id", "dataType": "int", "description": "Identifies the primary key from the database." },
+    { "id": "resource_path", "alias": "resource_path", "dataType": "string", "description": "The HTTP path for this issue." },
+    { "id": "created_at", "alias": "created_at", "dataType": "datetime", "description": "The time this issue was created." },
+    { "id": "updated_at", "alias": "updated_at", "dataType": "datetime", "description": "The last time this issue was updated." },
+    { "id": "last_edited_at", "alias": "last_edited_at", "dataType": "datetime", "description": "The moment the editor made the last edit." },
+    { "id": "published_at", "alias": "published_at", "dataType": "datetime", "description": "Identifies when the comment was published at." }
+  ]
+}
